@@ -1,25 +1,29 @@
-import logo from './logo.svg';
-import './App.css';
+import React from "react";
+import {Switch, Route, useLocation} from "react-router-dom";
+import JobsPage from "./pages/JobsPage";
+import JobDetailPage from "./pages/JobDetailPage";
+import GlobalStyle from "./components/globalStyle/GlobalStyle";
+import Navbar from "./components/navbar/Navbar";
+import {useStyleContext} from "./context/style_context";
+import {AnimatePresence} from "framer-motion"
+
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    const {isLight} = useStyleContext()
+    const location = useLocation()
+
+    return (
+        <>
+            <GlobalStyle isLight={isLight}/>
+            <Navbar/>
+            <AnimatePresence>
+                <Switch location={location} key={location.pathname}>
+                    <Route exact path='/' component={JobsPage}/>
+                    <Route path='/job-detail/:id' component={JobDetailPage}/>
+                </Switch>
+            </AnimatePresence>
+        </>
+    );
 }
 
 export default App;
