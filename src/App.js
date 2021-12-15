@@ -9,12 +9,12 @@ import {AnimatePresence} from "framer-motion"
 
 
 function App() {
-    const {isLight} = useStyleContext()
+    const {isLight, isModal} = useStyleContext()
     const location = useLocation()
 
     return (
         <>
-            <GlobalStyle isLight={isLight}/>
+            <GlobalStyle isModal={isModal} isLight={isLight}/>
             <Navbar/>
             <AnimatePresence>
                 <Switch location={location} key={location.pathname}>

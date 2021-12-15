@@ -38,4 +38,10 @@ export const JobInfoStyled = styled.div`
     margin-top: 4rem;
     margin-bottom: 2.4rem;
   }
+  
+  @media (max-width: 700px) {
+    .company-info {
+      flex-direction: column;
+    }
+  }
 `

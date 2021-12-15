@@ -102,3 +102,4 @@ export const SearchBarStyled = styled.div`
     display: none;
   }
 `
+

@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const CardsStyled = styled.div`
   display: grid;
   justify-content: center;
-  grid-template-columns: repeat(auto-fit, minmax(34rem, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(33rem, 1fr));
   grid-column-gap: 3rem;
   grid-row-gap: 6.5rem;
   margin-top: 10.5rem;

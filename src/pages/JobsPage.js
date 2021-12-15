@@ -5,8 +5,12 @@ import SearchBarMobile from "../components/searchBar/SearchBarMobile";
 import Cards from "../components/cards/Cards";
 import {ButtonFlex, ButtonLoadMore} from "../components/UI/ButtonsStyled";
 import {motion} from "framer-motion";
+import MobileFilter from "../components/MobileFilter/MobileFilter";
+import {useStyleContext} from "../context/style_context";
 
 const JobsPage = () => {
+    const {isModal} = useStyleContext()
+
     return (
         <motion.div
             initial={{opacity: 0}}
@@ -15,6 +19,7 @@ const JobsPage = () => {
             <ContainerStyled>
                 <SearchBar/>
                 <SearchBarMobile/>
+                {isModal && <MobileFilter/>}
                 <Cards/>
                 <ButtonFlex>
                     <ButtonLoadMore>

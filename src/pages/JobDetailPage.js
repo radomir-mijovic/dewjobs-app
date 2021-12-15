@@ -3,6 +3,7 @@ import styled from "styled-components";
 import CompanyHeader from "../components/companyHeader/CompanyHeader";
 import JobInfo from "../components/jobInfo/JobInfo";
 import {motion} from "framer-motion";
+import Footer from "../components/footer/Footer";
 
 const JobDetailPage = () => {
     return (
@@ -14,6 +15,7 @@ const JobDetailPage = () => {
                 <CompanyHeader/>
                 <JobInfo/>
             </Wrapper>
+            <Footer/>
         </motion.div>
     );
 };

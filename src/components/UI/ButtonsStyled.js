@@ -28,12 +28,16 @@ export const ButtonLoadMore = styled.button`
   width: 14.1rem;
   height: 4.8rem;
   background: #5964E0;
-  position: absolute;
   font-size: 1.6rem;
   transition: background-color .4s ease-in-out;
   
   :hover {
     background: #939BF4;
+  }
+  
+  @media (max-width: 700px) {
+    margin-top: ${props => props.marginTop || undefined};
+    width: ${props => props.width || undefined};
   }
 `
 
@@ -44,7 +48,7 @@ export const ButtonCompanySiteStyled = styled.button`
   color: ${props => props.isLight ?'#5964E0' : '#FFFF'};
   font-size: 1.6rem;
   font-weight: 700;
-  transition: all .2s ease-in-out;
+  transition: all .4s ease-in-out;
   
   :hover {
     background-color: ${props => props.isLight ? '#c2c5f1' : '#6d6d7d'};

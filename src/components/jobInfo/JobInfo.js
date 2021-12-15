@@ -1,6 +1,6 @@
 import React from 'react';
 import {JobInfoStyled} from "./JobInfoStyled";
-import {ButtonSearchStyled} from "../UI/ButtonsStyled";
+import {ButtonLoadMore} from "../UI/ButtonsStyled";
 import {DotStyled, H2Card} from "../globalStyle/GlobalStyle";
 import {useStyleContext} from "../../context/style_context";
 
@@ -19,9 +19,11 @@ const JobInfo = () => {
                     <h1>Senior Software Engineer</h1>
                     <h3>United Kingdom</h3>
                 </div>
-                <ButtonSearchStyled>
+                <ButtonLoadMore
+                    width={'100%'}
+                    marginTop={'5rem'}>
                     Apply Now
-                </ButtonSearchStyled>
+                </ButtonLoadMore>
             </div>
             <H2Card className='text'>
                 Lorem ipsum dolor sit amet, consectetur adipisicing elit. Accusamus doloribus eius laudantium.
