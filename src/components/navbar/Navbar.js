@@ -17,7 +17,7 @@ const Navbar = () => {
 
     return (
         <NavbarWrapper toggle={toggle}>
-            <Link to='/'>
+            <Link className='logo' to='/'>
                 <img src={logo} alt="logo"/>
             </Link>
             <div className="switcher">

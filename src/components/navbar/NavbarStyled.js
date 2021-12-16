@@ -13,6 +13,10 @@ export const NavbarWrapper = styled.div`
   justify-content: space-between;
   padding: 4.6rem 11.46%;
   
+  .logo {
+    height: 3.2rem;
+  }
+  
   > img {
     width: 11.5rem;
     height: 3.2rem;

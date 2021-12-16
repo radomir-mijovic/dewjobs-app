@@ -11,9 +11,8 @@ const SearchBarMobile = () => {
     return (
         <SearchBarMobileStyled isLight={isLight}>
             <input type="text" placeholder='Filter by title...'/>
-            <img src={filterIcon} alt=""/>
+            <img onClick={() => setIsModal(true)} src={filterIcon} alt=""/>
             <ButtonSearchStyled
-                onClick={() => setIsModal(true)}
                 height={'4.8rem'}
                 width={'4.8rem'}>
                 <img className='search-icon' src={searchIcon} alt=""/>
