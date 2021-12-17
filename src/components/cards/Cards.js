@@ -9,18 +9,18 @@ import {useJobsContext} from "../../context/job_context";
 
 
 const Cards = () => {
-    const {isLight} = useStyleContext()
-    const {jobs} = useJobsContext()
+    const {isLight, setIsAutocomplete} = useStyleContext()
+    const {jobs, filteringJobs} = useJobsContext()
 
     return (
         <CardsStyled isLight={isLight}>
-            {jobs && jobs.map(job => {
+            {jobs && filteringJobs.map(job => {
                 const {id} = job;
-                console.log(job.logo_background_color)
 
                 return (
                     <Link to={`/job-detail/${id}`} key={job.id}>
                         <motion.div
+                            onClick={() => setIsAutocomplete(false)}
                             whileTap={{scale: .97}}
                             whileHover={{scale: 1.01}}
                             className="card">

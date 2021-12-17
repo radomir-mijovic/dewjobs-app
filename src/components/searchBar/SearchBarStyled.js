@@ -41,6 +41,7 @@ export const SearchBarStyled = styled.div`
   .location {
     border-left: 1px solid #9DAEC2;
     border-right: 1px solid #9DAEC2;
+    position: relative;
   }
   
   .full-time {

@@ -5,13 +5,16 @@ const StyleContext = React.createContext()
 export const StyleProvider = ({children}) => {
     const [isLight, setIsLight] = useState(true)
     const [isModal, setIsModal] = useState(false)
+    const [isAutocomplete, setIsAutocomplete] = useState(false)
 
     return (
         <StyleContext.Provider value={{
             isLight,
             setIsLight,
             isModal,
-            setIsModal
+            setIsModal,
+            isAutocomplete,
+            setIsAutocomplete
         }}>
             {children}
         </StyleContext.Provider>
