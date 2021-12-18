@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const LocationAutocompleteStyled = styled.div`
   position: absolute;
-  background: #FFFF;
+  background: ${props => props.isLight ? '#FFFF' : '#19202D'};
   top: 8rem;
   z-index: 3;
   width: 100%;

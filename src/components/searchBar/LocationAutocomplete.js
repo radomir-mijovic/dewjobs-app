@@ -5,7 +5,7 @@ import {useStyleContext} from "../../context/style_context";
 
 const LocationAutocomplete = () => {
     const {jobs, searchLocation, setSearchLocation} = useJobsContext()
-    const {setIsAutocomplete} = useStyleContext()
+    const {isLight, setIsAutocomplete} = useStyleContext()
 
     const locations = []
     for (const index in jobs) {
@@ -20,7 +20,7 @@ const LocationAutocomplete = () => {
     }
 
     return (
-        <LocationAutocompleteStyled>
+        <LocationAutocompleteStyled isLight={isLight}>
             {uniqueLocations.map((item, index) => {
                 if (item.toLowerCase().startsWith(searchLocation.toLowerCase())) {
                     return (
