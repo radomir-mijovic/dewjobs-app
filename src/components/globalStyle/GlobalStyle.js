@@ -16,7 +16,7 @@ const GlobalStyle = createGlobalStyle`
     font-family: 'Kumbh Sans', sans-serif;
     background: ${props => props.isLight ? '#F2F2F2' : '#121721'};
     transition: background-color .4s ease-in-out;
-    height: ${props => props.isModal ? '100%' : undefined};
+    //height: ${props => props.isModal ? '100%' : undefined};
     overflow: ${props => props.isModal ? 'hidden' : undefined};
   }
   

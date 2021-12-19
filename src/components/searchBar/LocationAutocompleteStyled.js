@@ -13,4 +13,9 @@ export const LocationAutocompleteStyled = styled.div`
     cursor: pointer;
     margin: 1rem;
   }
+  
+  @media (max-width: 700px) {
+    background: ${props => props.isLight ? '#F2F2F2' : '#19202D'};
+    width: 90%;
+  }
 `

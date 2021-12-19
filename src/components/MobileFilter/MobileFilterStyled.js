@@ -6,7 +6,7 @@ export const MobileFilterStyled = styled.div`
   left: 0;
   z-index: 10;
   width: 100vw;
-  height: 100vh;
+  height: 120vh;
   background: rgba(0, 0, 0, .4);
   display: grid;
   place-items: center;

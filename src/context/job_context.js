@@ -1,7 +1,6 @@
 import React, {useContext, useReducer, useState} from "react";
 import {jobs_reducer} from "../reducer/jobs_reducer";
 import axios from "axios";
-import {useHistory} from "react-router-dom";
 import {useStyleContext} from "./style_context";
 import {
     GET_ALL_JOBS,
@@ -29,7 +28,6 @@ export const JobsProvider = ({children}) => {
     const [searchLocation, setSearchLocation] = useState('')
     const [isFullTime, setIsFullTime] = useState('')
     const {setIsAutocomplete, setIsChecked} = useStyleContext()
-    let history = useHistory()
 
     const getAllJobs = async () => {
         try {
