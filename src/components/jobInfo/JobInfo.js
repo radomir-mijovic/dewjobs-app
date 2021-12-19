@@ -48,7 +48,6 @@ const JobInfo = () => {
             </H2Card>
             <ul>
                 {requirements_items && requirements_items.map((item, index) => {
-                    console.log(item)
                     return (
                         <li key={index}><H2Card>{item.items}</H2Card></li>
                     )

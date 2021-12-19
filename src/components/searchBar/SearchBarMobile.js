@@ -10,7 +10,8 @@ const SearchBarMobile = () => {
     const {isLight, setIsModal} = useStyleContext()
     const {searchJobs, setSearchTitle} = useJobsContext()
 
-    const searchJobsHandler = () => {
+    const searchJobsHandler = (e) => {
+        e.preventDefault()
         searchJobs()
     }
 
@@ -18,11 +19,11 @@ const SearchBarMobile = () => {
         <SearchBarMobileStyled isLight={isLight}>
             <input
                 type="text"
-                onChange={e => setSearchTitle(e.target.value)}
+                onChange={(e) => setSearchTitle(e.target.value)}
                 placeholder='Filter by title...'/>
             <img onClick={() => setIsModal(true)} src={filterIcon} alt=""/>
             <ButtonSearchStyled
-                onClick={searchJobsHandler}
+                onClick={(e) => searchJobsHandler(e)}
                 height={'4.8rem'}
                 width={'4.8rem'}>
                 <img className='search-icon' src={searchIcon} alt=""/>

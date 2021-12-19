@@ -5,20 +5,27 @@ import JobInfo from "../components/jobInfo/JobInfo";
 import {motion} from "framer-motion";
 import Footer from "../components/footer/Footer";
 import {useJobsContext} from "../context/job_context";
-import {useParams} from "react-router-dom";
+import {Redirect, useParams} from "react-router-dom";
 
 const JobDetailPage = () => {
-    const {getJobDetail} = useJobsContext()
+    const {getJobDetail, isError} = useJobsContext()
     const {id} = useParams()
 
     useEffect(() => {
         getJobDetail(id)
     }, [])
 
+    if (isError) {
+        return (
+            <Redirect to='/'/>
+        )
+    }
+
     return (
         <motion.div
             initial={{opacity: 0}}
             animate={{opacity: 1}}
+            transition={{duration: .3}}
             exit={{opacity: 0}}>
             <Wrapper>
                 <CompanyHeader/>

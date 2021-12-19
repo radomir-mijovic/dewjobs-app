@@ -49,9 +49,10 @@ export const jobs_reducer = (state, action) => {
 
     if (action.type === IS_ERROR) {
         return {
+            ...state,
+            jobDetail: {},
             isLoading: false,
             isError: true
         }
     }
-
 }

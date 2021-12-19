@@ -21,6 +21,8 @@ const Cards = () => {
                     <Link to={`/job-detail/${id}`} key={job.id}>
                         <motion.div
                             onClick={() => setIsAutocomplete(false)}
+                            initial={{opacity: 0}}
+                            animate={{opacity: 1}}
                             whileTap={{scale: .97}}
                             whileHover={{scale: 1.01}}
                             className="card">

@@ -5,20 +5,35 @@ import sunImg from '../../assets/desktop/icon-sun.svg'
 import moonImg from '../../assets/desktop/icon-moon.svg'
 import {useStyleContext} from "../../context/style_context";
 import {Link} from "react-router-dom";
+import {useJobsContext} from "../../context/job_context";
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false)
-    const {setIsLight} = useStyleContext()
+    const {setIsLight, setIsAutocomplete} = useStyleContext()
+    const {
+        getAllJobs,
+        setSearchTitle,
+        setSearchLocation,
+        setIsFullTime
+    } = useJobsContext()
 
     const toggleHandler = () => {
         setToggle(prevState => !prevState)
         setIsLight(prevState => !prevState)
     }
 
+    const backHomeHandler = () => {
+        getAllJobs()
+        setSearchTitle('')
+        setSearchLocation('')
+        setIsFullTime('')
+        setIsAutocomplete(false)
+    }
+
     return (
         <NavbarWrapper toggle={toggle}>
             <Link className='logo' to='/'>
-                <img src={logo} alt="logo"/>
+                <img onClick={backHomeHandler} src={logo} alt="logo"/>
             </Link>
             <div className="switcher">
                 <img src={sunImg} alt=""/>

@@ -29,7 +29,7 @@ export const JobsProvider = ({children}) => {
     const [searchLocation, setSearchLocation] = useState('')
     const [isFullTime, setIsFullTime] = useState('')
     const {setIsAutocomplete, setIsChecked} = useStyleContext()
-    const history = useHistory()
+    let history = useHistory()
 
     const getAllJobs = async () => {
         try {
@@ -41,7 +41,6 @@ export const JobsProvider = ({children}) => {
                 type: GET_ALL_JOBS,
                 payload: response.data
             })
-            console.log(response.data)
         } catch (e) {
             dispatch({
                 type: IS_ERROR
@@ -59,10 +58,8 @@ export const JobsProvider = ({children}) => {
                 type: GET_JOB_DETAIL,
                 payload: response.data
             })
-            console.log(response.data)
         }
         catch (e) {
-            history.push('/')
             dispatch({
                 type: IS_ERROR
             })
