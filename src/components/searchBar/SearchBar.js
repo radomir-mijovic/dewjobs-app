@@ -12,23 +12,18 @@ const SearchBar = () => {
     const {
         searchJobs,
         isLoading,
-        setIsFullTime,
         setSearchTitle,
         searchLocation,
-        locationHandler
+        locationHandler,
+        fullTimeHandler,
+        emptyFullTimeHandler
     } = useJobsContext()
-    const {isLight, setIsAutocomplete, isAutocomplete} = useStyleContext()
-    const [isCheck, setIsCheck] = useState(false)
-
-    const fullTimeHandler = () => {
-        setIsCheck(true)
-        setIsFullTime('full')
-    }
-
-    const emptyFullTime = () => {
-        setIsCheck(false)
-        setIsFullTime('')
-    }
+    const {
+        isLight,
+        setIsAutocomplete,
+        isAutocomplete,
+        isChecked
+    } = useStyleContext()
 
     const searchHandler = (e) => {
         e.preventDefault()
@@ -61,9 +56,9 @@ const SearchBar = () => {
                 {isAutocomplete && <LocationAutocomplete/>}
             </div>
             <div className="full-time" onClick={() => setIsAutocomplete(false)}>
-                {!isCheck ?
+                {!isChecked ?
                     <div className='checkbox empty' onClick={fullTimeHandler}/> :
-                    <div className="checkbox full" onClick={emptyFullTime}>
+                    <div className="checkbox full" onClick={emptyFullTimeHandler}>
                         <img src={checkIcon} alt=""/>
                     </div>}
                 <h2 className='full-time-only_h2'>Full Time Only</h2>

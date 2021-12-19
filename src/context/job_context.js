@@ -9,6 +9,7 @@ const JobsUrl = 'http://127.0.0.1:8000/api/jobs/'
 const initialState = {
     jobs: [],
     filteringJobs: [],
+    jobDetail: {},
     isLoading: false
 }
 
@@ -19,7 +20,7 @@ export const JobsProvider = ({children}) => {
     const [searchTitle, setSearchTitle] = useState('')
     const [searchLocation, setSearchLocation] = useState('')
     const [isFullTime, setIsFullTime] = useState('')
-    const {setIsAutocomplete} = useStyleContext()
+    const {setIsAutocomplete, setIsChecked} = useStyleContext()
 
     const getAllJobs = async () => {
         try {
@@ -47,6 +48,16 @@ export const JobsProvider = ({children}) => {
         })
     }
 
+    const fullTimeHandler = () => {
+        setIsChecked(true)
+        setIsFullTime('full')
+    }
+
+    const emptyFullTimeHandler = () => {
+        setIsChecked(false)
+        setIsFullTime('')
+    }
+
     const locationHandler = (e) => {
         const location = e.target.value
         setSearchLocation(location)
@@ -66,7 +77,9 @@ export const JobsProvider = ({children}) => {
                 setSearchTitle,
                 setSearchLocation,
                 searchLocation,
-                setIsFullTime
+                setIsFullTime,
+                fullTimeHandler,
+                emptyFullTimeHandler
             }}>
             {children}
         </JobsContext.Provider>

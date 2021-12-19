@@ -6,6 +6,7 @@ export const StyleProvider = ({children}) => {
     const [isLight, setIsLight] = useState(true)
     const [isModal, setIsModal] = useState(false)
     const [isAutocomplete, setIsAutocomplete] = useState(false)
+    const [isChecked, setIsChecked] = useState(false)
 
     return (
         <StyleContext.Provider value={{
@@ -14,7 +15,9 @@ export const StyleProvider = ({children}) => {
             isModal,
             setIsModal,
             isAutocomplete,
-            setIsAutocomplete
+            setIsAutocomplete,
+            isChecked,
+            setIsChecked
         }}>
             {children}
         </StyleContext.Provider>

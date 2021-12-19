@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {MobileFilterStyled} from "./MobileFilterStyled";
 import {useStyleContext} from "../../context/style_context";
 import locationIcon from '../../assets/desktop/icon-location.svg'
@@ -9,19 +9,23 @@ import {useJobsContext} from "../../context/job_context";
 import LocationAutocomplete from "../searchBar/LocationAutocomplete";
 
 const MobileFilter = () => {
-    const {searchLocation, setIsFullTime, searchJobs, locationHandler} = useJobsContext()
-    const {setIsModal, isLight, isAutocomplete} = useStyleContext()
-    const [isCheck, setIsCheck] = useState(false)
+    const {
+        searchLocation,
+        searchJobs,
+        locationHandler,
+        fullTimeHandler,
+        emptyFullTimeHandler
+    } = useJobsContext()
+    const {
+        setIsModal,
+        isLight,
+        isAutocomplete,
+        isChecked
+    } = useStyleContext()
 
-
-    const fullTimeHandler = () => {
-        setIsCheck(true)
-        setIsFullTime('full')
-    }
-
-    const emptyFullTime = () => {
-        setIsCheck(false)
-        setIsFullTime('')
+    const closeModalHandler = () => {
+        emptyFullTimeHandler()
+        setIsModal(false)
     }
 
     const searchHandler = (e) => {
@@ -32,7 +36,7 @@ const MobileFilter = () => {
 
     return (
         <MobileFilterStyled isLight={isLight}>
-            <img className='close-icon' onClick={() => setIsModal(false)} src={closeIcon} alt=""/>
+            <img className='close-icon' onClick={closeModalHandler} src={closeIcon} alt=""/>
             <div className="search-box">
                 <div className="location">
                     <img src={locationIcon} alt="location-icon"/>
@@ -45,8 +49,8 @@ const MobileFilter = () => {
                 </div>
                 <div className="full-time">
                     <div className="checkboxes">
-                        {!isCheck ? <div className="checkbox empty" onClick={fullTimeHandler}/> :
-                            <div className="checkbox full" onClick={emptyFullTime}>
+                        {!isChecked ? <div className="checkbox empty" onClick={fullTimeHandler}/> :
+                            <div className="checkbox full" onClick={emptyFullTimeHandler}>
                                 <img src={checkIcon} alt="check-icon"/>
                             </div>
                         }
