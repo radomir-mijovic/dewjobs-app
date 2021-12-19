@@ -7,9 +7,17 @@ import {ButtonFlex, ButtonLoadMore} from "../components/UI/ButtonsStyled";
 import {motion} from "framer-motion";
 import MobileFilter from "../components/MobileFilter/MobileFilter";
 import {useStyleContext} from "../context/style_context";
+import {useJobsContext} from "../context/job_context";
 
 const JobsPage = () => {
     const {isModal} = useStyleContext()
+    const {isError} = useJobsContext()
+
+    if (isError) {
+        return (
+            <h1>Error</h1>
+        )
+    }
 
     return (
         <motion.div

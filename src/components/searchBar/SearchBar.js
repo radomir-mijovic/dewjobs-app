@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {SearchBarStyled} from "./SearchBarStyled";
 import {ButtonSearchStyled} from "../UI/ButtonsStyled";
 import searchIcon from '../../assets/desktop/icon-search.svg'

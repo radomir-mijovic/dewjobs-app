@@ -9,6 +9,12 @@ export const FooterStyled = styled.footer`
   align-items: center;
   justify-content: space-between;
   padding: 0 24.65%;
+  
+  .job-info {
+    > h1 {
+      margin-bottom: 1.2rem;
+    }
+  }
 
   @media (max-width: 1200px) {
     padding: 0 18%;

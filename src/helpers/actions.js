@@ -1,3 +1,5 @@
 export const GET_ALL_JOBS = 'GET_ALL_JOBS'
+export const GET_JOB_DETAIL = 'GET_JOB_DETAIL'
 export const SEARCH_JOBS = 'SEARCH-JOBS'
-export const IS_LOADING  = 'IS_LOADING'
+export const IS_LOADING = 'IS_LOADING'
+export const IS_ERROR = 'IS_ERROR'

@@ -12,7 +12,7 @@ export const CompanyHeaderStyled = styled.div`
   .logo-big {
     height: 14rem;
     width: 18rem;
-    background: grey;
+    background: ${props => props.logoBackground};
     display: flex;
     align-items: center;
     justify-content: center;
@@ -44,6 +44,7 @@ export const CompanyHeaderStyled = styled.div`
   
   .small-logo {
     display: none;
+    background: ${props => props.logoBackground};
   }
   
   @media (max-width: 500px) {

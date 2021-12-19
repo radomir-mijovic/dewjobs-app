@@ -1,16 +1,24 @@
 import React, {useContext, useReducer, useState} from "react";
 import {jobs_reducer} from "../reducer/jobs_reducer";
 import axios from "axios";
-import {GET_ALL_JOBS, SEARCH_JOBS, IS_LOADING} from "../helpers/actions";
+import {useHistory} from "react-router-dom";
 import {useStyleContext} from "./style_context";
+import {
+    GET_ALL_JOBS,
+    GET_JOB_DETAIL,
+    SEARCH_JOBS,
+    IS_LOADING,
+    IS_ERROR
+} from "../helpers/actions";
 
-const JobsUrl = 'http://127.0.0.1:8000/api/jobs/'
+const JOBS_URL = 'http://127.0.0.1:8000/api/jobs/'
 
 const initialState = {
     jobs: [],
     filteringJobs: [],
     jobDetail: {},
-    isLoading: false
+    isLoading: false,
+    isError: false
 }
 
 const JobsContext = React.createContext()
@@ -21,19 +29,43 @@ export const JobsProvider = ({children}) => {
     const [searchLocation, setSearchLocation] = useState('')
     const [isFullTime, setIsFullTime] = useState('')
     const {setIsAutocomplete, setIsChecked} = useStyleContext()
+    const history = useHistory()
 
     const getAllJobs = async () => {
         try {
             dispatch({
                 type: IS_LOADING
             })
-            const response = await axios.get(JobsUrl)
+            const response = await axios.get(JOBS_URL)
             dispatch({
                 type: GET_ALL_JOBS,
                 payload: response.data
             })
+            console.log(response.data)
         } catch (e) {
-            console.log(e)
+            dispatch({
+                type: IS_ERROR
+            })
+        }
+    }
+
+    const getJobDetail = async (id) => {
+        try {
+            dispatch({
+                type: IS_LOADING
+            })
+            const response = await axios.get(`http://127.0.0.1:8000/api/jobs/${id}/`)
+            dispatch({
+                type: GET_JOB_DETAIL,
+                payload: response.data
+            })
+            console.log(response.data)
+        }
+        catch (e) {
+            history.push('/')
+            dispatch({
+                type: IS_ERROR
+            })
         }
     }
 
@@ -72,6 +104,7 @@ export const JobsProvider = ({children}) => {
             value={{
                 ...state,
                 getAllJobs,
+                getJobDetail,
                 searchJobs,
                 locationHandler,
                 setSearchTitle,
