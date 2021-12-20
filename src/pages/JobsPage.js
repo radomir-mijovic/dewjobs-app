@@ -8,6 +8,7 @@ import {motion} from "framer-motion";
 import MobileFilter from "../components/MobileFilter/MobileFilter";
 import {useStyleContext} from "../context/style_context";
 import {useJobsContext} from "../context/job_context";
+import {Link} from "react-router-dom";
 
 const JobsPage = () => {
     const {isModal} = useStyleContext()
@@ -31,7 +32,7 @@ const JobsPage = () => {
                 <Cards/>
                 <ButtonFlex>
                     {filteringJobs.length === 0 ?
-                        <h1>No Jobs Found</h1> :
+                        <h1>No Jobs Found, <Link to='/'>Back to all jobs page</Link></h1> :
                         <ButtonLoadMore>
                             Load More
                         </ButtonLoadMore>}

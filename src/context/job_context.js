@@ -94,6 +94,14 @@ export const JobsProvider = ({children}) => {
         }
     }
 
+    const backHomeHandler = () => {
+        // getAllJobs()
+        setSearchTitle('')
+        setSearchLocation('')
+        setIsFullTime('')
+        setIsAutocomplete(false)
+    }
+
     return (
         <JobsContext.Provider
             value={{
@@ -107,7 +115,8 @@ export const JobsProvider = ({children}) => {
                 searchLocation,
                 setIsFullTime,
                 fullTimeHandler,
-                emptyFullTimeHandler
+                emptyFullTimeHandler,
+                backHomeHandler
             }}>
             {children}
         </JobsContext.Provider>

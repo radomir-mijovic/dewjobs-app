@@ -12,16 +12,15 @@ import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 // TODO Make Loading Component
 // TODO Add Theme Choice to Local Storage
 // TODO Add Load More Functionality
-// TODO Add No Jobs Found
 
 function App() {
     const location = useLocation()
-    const {getAllJobs} = useJobsContext()
+    const {getAllJobs, searchTitle} = useJobsContext()
     const {isLight, isModal} = useStyleContext()
 
     useEffect(() => {
         getAllJobs()
-    }, [])
+    }, [searchTitle])
 
     return (
         <>
