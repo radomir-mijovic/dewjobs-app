@@ -9,10 +9,11 @@ import MobileFilter from "../components/MobileFilter/MobileFilter";
 import {useStyleContext} from "../context/style_context";
 import {useJobsContext} from "../context/job_context";
 import {Link} from "react-router-dom";
+import Loading from "../components/loading/Loading";
 
 const JobsPage = () => {
     const {isModal} = useStyleContext()
-    const {isError, filteringJobs} = useJobsContext()
+    const {isError, isLoading, filteringJobs} = useJobsContext()
 
     if (isError) {
         return (
@@ -29,14 +30,20 @@ const JobsPage = () => {
                 <SearchBar/>
                 <SearchBarMobile/>
                 {isModal && <MobileFilter/>}
-                <Cards/>
-                <ButtonFlex>
-                    {filteringJobs.length === 0 ?
-                        <h1>No Jobs Found, <Link to='/'>Back to all jobs page</Link></h1> :
-                        <ButtonLoadMore>
-                            Load More
-                        </ButtonLoadMore>}
-                </ButtonFlex>
+                {!isLoading ?
+                    <>
+                        <Cards/>
+                        <ButtonFlex>
+                            {filteringJobs.length === 0 ?
+                                <h1>No Jobs Found, <Link to='/'>Back to all jobs page</Link></h1> :
+                                <ButtonLoadMore>
+                                    Load More
+                                </ButtonLoadMore>}
+                        </ButtonFlex>
+                    </> :
+                    <Loading/>
+                }
+
             </ContainerStyled>
         </motion.div>
     );

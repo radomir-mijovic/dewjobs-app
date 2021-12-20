@@ -30,18 +30,13 @@ const SearchBar = () => {
         searchJobs()
     }
 
-    if (isLoading) {
-        return (
-            <h1>Loading</h1>
-        )
-    }
-
     return (
         <SearchBarStyled isLight={isLight}>
             <div className="search">
                 <img className='search-icon' src={searchIcon} alt="Search icon"/>
                 <input
                     type="text"
+                    disabled={isLoading && true}
                     onChange={(e) => setSearchTitle(e.target.value)}
                     onClick={() => setIsAutocomplete(false)}
                     placeholder='Filter by title, companies, expertise...'/>
@@ -50,6 +45,7 @@ const SearchBar = () => {
                 <img className='location-icon' src={locationIcon} alt="Location icon"/>
                 <input
                     type="text"
+                    disabled={isLoading && true}
                     value={searchLocation}
                     onChange={(e) => locationHandler(e)}
                     placeholder='Filter by location...'/>
@@ -64,6 +60,7 @@ const SearchBar = () => {
                 <h2 className='full-time-only_h2'>Full Time Only</h2>
                 <h2 className='full-time_h2'>Full Time</h2>
                 <ButtonSearchStyled
+                    disabled={isLoading && true}
                     onClick={e => searchHandler(e)}
                     width={'123px'}>
                     Search

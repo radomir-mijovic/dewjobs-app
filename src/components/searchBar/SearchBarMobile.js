@@ -8,7 +8,10 @@ import {useJobsContext} from "../../context/job_context";
 
 const SearchBarMobile = () => {
     const {isLight, setIsModal} = useStyleContext()
-    const {searchJobs, setSearchTitle} = useJobsContext()
+    const {searchJobs,
+        setSearchTitle,
+        isLoading
+    } = useJobsContext()
 
     const searchJobsHandler = (e) => {
         e.preventDefault()
@@ -19,10 +22,12 @@ const SearchBarMobile = () => {
         <SearchBarMobileStyled isLight={isLight}>
             <input
                 type="text"
+                disabled={isLoading && true}
                 onChange={(e) => setSearchTitle(e.target.value)}
                 placeholder='Filter by title...'/>
             <img onClick={() => setIsModal(true)} src={filterIcon} alt=""/>
             <ButtonSearchStyled
+                disabled={isLoading && true}
                 onClick={(e) => searchJobsHandler(e)}
                 height={'4.8rem'}
                 width={'4.8rem'}>
