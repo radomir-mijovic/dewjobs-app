@@ -8,13 +8,28 @@ import {motion} from "framer-motion";
 import MobileFilter from "../components/MobileFilter/MobileFilter";
 import {useStyleContext} from "../context/style_context";
 import {useJobsContext} from "../context/job_context";
-import {Link} from "react-router-dom";
 import Loading from "../components/loading/Loading";
 import Error from "../components/error/Error";
 
 const JobsPage = () => {
     const {isModal} = useStyleContext()
-    const {isError, isLoading, filteringJobs} = useJobsContext()
+    const {
+        isError,
+        isLoading,
+        filteringJobs,
+        getAllJobs,
+        clearValuesHandler,
+        setSliceEnd
+    } = useJobsContext()
+
+    const sliceHandler = () => {
+        setSliceEnd(prevState => prevState + 2)
+    }
+
+    const loadAllJobsHandler = () => {
+        clearValuesHandler()
+        getAllJobs()
+    }
 
     if (isError) {
         return <Error/>
@@ -34,15 +49,21 @@ const JobsPage = () => {
                         <Cards/>
                         <ButtonFlex>
                             {filteringJobs.length === 0 ?
-                                <h1>No Jobs Found, <Link to='/'>Back to all jobs page</Link></h1> :
-                                <ButtonLoadMore>
+                                <>
+                                    <h1>
+                                        No Jobs Found
+                                    </h1>
+                                    <button onClick={loadAllJobsHandler}>
+                                        Back to jobs list
+                                    </button>
+                                </> :
+                                <ButtonLoadMore onClick={sliceHandler}>
                                     Load More
                                 </ButtonLoadMore>}
                         </ButtonFlex>
                     </> :
                     <Loading/>
                 }
-
             </ContainerStyled>
         </motion.div>
     );

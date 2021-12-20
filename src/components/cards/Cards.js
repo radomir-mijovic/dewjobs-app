@@ -11,7 +11,8 @@ import NoJobsFound from "../noJobsFound/NoJobsFound";
 
 const Cards = () => {
     const {isLight, setIsAutocomplete} = useStyleContext()
-    const {jobs, filteringJobs} = useJobsContext()
+    const {filteringJobs, sliceEnd} = useJobsContext()
+    const jobsForMapping = filteringJobs.slice(0, sliceEnd)
 
     if (filteringJobs.length === 0) {
         return <NoJobsFound/>
@@ -19,7 +20,7 @@ const Cards = () => {
 
     return (
         <CardsStyled isLight={isLight}>
-            {jobs && filteringJobs.map(job => {
+            {jobsForMapping && jobsForMapping.map(job => {
                 const {id} = job;
 
                 return (

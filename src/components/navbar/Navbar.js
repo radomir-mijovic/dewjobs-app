@@ -9,13 +9,8 @@ import {useJobsContext} from "../../context/job_context";
 
 const Navbar = () => {
     const [toggle, setToggle] = useState(false)
-    const {setIsLight, setIsAutocomplete} = useStyleContext()
-    const {
-        getAllJobs,
-        setSearchTitle,
-        setSearchLocation,
-        setIsFullTime
-    } = useJobsContext()
+    const {setIsLight} = useStyleContext()
+    const {getAllJobs, clearValuesHandler} = useJobsContext()
 
     const toggleHandler = () => {
         setToggle(prevState => !prevState)
@@ -23,11 +18,8 @@ const Navbar = () => {
     }
 
     const backHomeHandler = () => {
+        clearValuesHandler()
         getAllJobs()
-        setSearchTitle('')
-        setSearchLocation('')
-        setIsFullTime('')
-        setIsAutocomplete(false)
     }
 
     return (

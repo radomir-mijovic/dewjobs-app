@@ -62,4 +62,8 @@ export const ButtonFlex = styled.div`
   justify-content: center;
   margin-top: 5.6rem;
   margin-bottom: 8rem;
+  
+  > button {
+    
+  }
 `

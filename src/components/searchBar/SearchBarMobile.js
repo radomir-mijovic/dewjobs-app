@@ -24,7 +24,7 @@ const SearchBarMobile = () => {
                 type="text"
                 disabled={isLoading && true}
                 onChange={(e) => setSearchTitle(e.target.value)}
-                placeholder='Filter by title...'/>
+                placeholder='Filter by title'/>
             <img onClick={() => setIsModal(true)} src={filterIcon} alt=""/>
             <ButtonSearchStyled
                 disabled={isLoading && true}

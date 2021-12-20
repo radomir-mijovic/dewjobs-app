@@ -12,6 +12,7 @@ const SearchBar = () => {
     const {
         searchJobs,
         isLoading,
+        searchTitle,
         setSearchTitle,
         searchLocation,
         locationHandler,
@@ -37,9 +38,10 @@ const SearchBar = () => {
                 <input
                     type="text"
                     disabled={isLoading && true}
+                    value={searchTitle}
                     onChange={(e) => setSearchTitle(e.target.value)}
                     onClick={() => setIsAutocomplete(false)}
-                    placeholder='Filter by title, companies, expertise...'/>
+                    placeholder='Filter by title'/>
             </div>
             <div className="location">
                 <img className='location-icon' src={locationIcon} alt="Location icon"/>
@@ -48,7 +50,7 @@ const SearchBar = () => {
                     disabled={isLoading && true}
                     value={searchLocation}
                     onChange={(e) => locationHandler(e)}
-                    placeholder='Filter by location...'/>
+                    placeholder='Filter by location'/>
                 {isAutocomplete && <LocationAutocomplete/>}
             </div>
             <div className="full-time" onClick={() => setIsAutocomplete(false)}>

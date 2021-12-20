@@ -44,7 +44,7 @@ const MobileFilter = () => {
                         type="text"
                         value={searchLocation}
                         onChange={e => locationHandler(e)}
-                        placeholder='Filter by location...'/>
+                        placeholder='Filter by location'/>
                     {isAutocomplete && <LocationAutocomplete/>}
                 </div>
                 <div className="full-time">

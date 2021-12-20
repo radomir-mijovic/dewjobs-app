@@ -27,6 +27,7 @@ export const JobsProvider = ({children}) => {
     const [searchTitle, setSearchTitle] = useState('')
     const [searchLocation, setSearchLocation] = useState('')
     const [isFullTime, setIsFullTime] = useState('')
+    const [sliceEnd, setSliceEnd] = useState(2)
     const {setIsAutocomplete, setIsChecked} = useStyleContext()
 
     const getAllJobs = async () => {
@@ -94,12 +95,13 @@ export const JobsProvider = ({children}) => {
         }
     }
 
-    const backHomeHandler = () => {
-        // getAllJobs()
+    const clearValuesHandler = () => {
         setSearchTitle('')
         setSearchLocation('')
         setIsFullTime('')
+        setIsChecked(false)
         setIsAutocomplete(false)
+        setSliceEnd(2)
     }
 
     return (
@@ -110,13 +112,16 @@ export const JobsProvider = ({children}) => {
                 getJobDetail,
                 searchJobs,
                 locationHandler,
+                searchTitle,
                 setSearchTitle,
                 setSearchLocation,
                 searchLocation,
                 setIsFullTime,
                 fullTimeHandler,
                 emptyFullTimeHandler,
-                backHomeHandler
+                clearValuesHandler,
+                sliceEnd,
+                setSliceEnd
             }}>
             {children}
         </JobsContext.Provider>

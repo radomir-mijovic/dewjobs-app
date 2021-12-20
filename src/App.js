@@ -9,18 +9,18 @@ import {AnimatePresence} from "framer-motion"
 import {useJobsContext} from "./context/job_context";
 import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 
-// TODO Make Loading Component
 // TODO Add Theme Choice to Local Storage
 // TODO Add Load More Functionality
 
+
 function App() {
     const location = useLocation()
-    const {getAllJobs, searchTitle} = useJobsContext()
+    const {getAllJobs} = useJobsContext()
     const {isLight, isModal} = useStyleContext()
 
     useEffect(() => {
         getAllJobs()
-    }, [searchTitle])
+    }, [])
 
     return (
         <>
