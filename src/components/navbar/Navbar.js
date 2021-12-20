@@ -8,14 +8,8 @@ import {Link} from "react-router-dom";
 import {useJobsContext} from "../../context/job_context";
 
 const Navbar = () => {
-    const [toggle, setToggle] = useState(false)
-    const {setIsLight} = useStyleContext()
+    const {setIsLight, isLight} = useStyleContext()
     const {getAllJobs, clearValuesHandler} = useJobsContext()
-
-    const toggleHandler = () => {
-        setToggle(prevState => !prevState)
-        setIsLight(prevState => !prevState)
-    }
 
     const backHomeHandler = () => {
         clearValuesHandler()
@@ -23,14 +17,14 @@ const Navbar = () => {
     }
 
     return (
-        <NavbarWrapper toggle={toggle}>
+        <NavbarWrapper isLight={isLight}>
             <Link className='logo' to='/'>
                 <img onClick={backHomeHandler} src={logo} alt="logo"/>
             </Link>
             <div className="switcher">
                 <img src={sunImg} alt=""/>
                 <div className="toggle">
-                    <div onClick={toggleHandler} className="ball"/>
+                    <div onClick={() => setIsLight(prevState => !prevState)} className="ball"/>
                 </div>
                 <img src={moonImg} alt=""/>
             </div>

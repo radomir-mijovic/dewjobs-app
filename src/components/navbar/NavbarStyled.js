@@ -37,7 +37,7 @@ export const NavbarWrapper = styled.div`
       height: 100%;
       display: flex;
       align-items: center;
-      justify-content: ${props => props.toggle ? 'flex-end' : 'flex-start'};
+      justify-content: ${props => props.isLight ? 'flex-start' : 'flex-end'};
       padding: 5px;
       border-radius: 1.6rem;
     }

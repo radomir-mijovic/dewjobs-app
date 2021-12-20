@@ -9,9 +9,6 @@ import {AnimatePresence} from "framer-motion"
 import {useJobsContext} from "./context/job_context";
 import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 
-// TODO Add Theme Choice to Local Storage
-// TODO Add Load More Functionality
-
 
 function App() {
     const location = useLocation()
@@ -26,7 +23,7 @@ function App() {
         <>
             <GlobalStyle isModal={isModal} isLight={isLight}/>
             <Navbar/>
-            <AnimatePresence exitBeforeEnter>
+            <AnimatePresence>
                 <ScrollToTop/>
                 <Switch location={location} key={location.pathname}>
                     <Route exact path='/' component={JobsPage}/>
