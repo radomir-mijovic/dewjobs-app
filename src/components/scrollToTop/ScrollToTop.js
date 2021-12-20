@@ -1,7 +1,6 @@
 import {useEffect} from 'react';
 import {withRouter} from "react-router-dom";
 
-
 const ScrollToTop = ({history}) => {
     useEffect(() => {
         const startOnTop = history.listen(() => {

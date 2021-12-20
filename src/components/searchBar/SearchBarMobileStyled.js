@@ -13,6 +13,12 @@ export const SearchBarMobileStyled = styled.div`
   padding-right: 5%;
   transition: background-color .4s ease-in-out;
   
+  > input {
+    background: ${props => props.isLight ? '#FFFF' : '#19202D'};
+    color: ${props => props.isLight ? '#121721' : '#FFFF'};
+    transition: background-color .4s ease-in-out;
+  }
+  
   > img {
     cursor: pointer;
   }

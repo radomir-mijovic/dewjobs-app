@@ -10,7 +10,6 @@ import {useJobsContext} from "./context/job_context";
 import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 
 // TODO Make Loading Component
-// TODO Make Start At Top Component
 // TODO Add Theme Choice to Local Storage
 // TODO Add Load More Functionality
 // TODO Add No Jobs Found
