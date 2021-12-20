@@ -6,11 +6,16 @@ import {SmallLogoStyled} from "../logo/SmallLogoStyled";
 import {Link} from "react-router-dom";
 import {motion} from "framer-motion";
 import {useJobsContext} from "../../context/job_context";
+import NoJobsFound from "../noJobsFound/NoJobsFound";
 
 
 const Cards = () => {
     const {isLight, setIsAutocomplete} = useStyleContext()
     const {jobs, filteringJobs} = useJobsContext()
+
+    if (filteringJobs.length === 0) {
+        return <NoJobsFound/>
+    }
 
     return (
         <CardsStyled isLight={isLight}>

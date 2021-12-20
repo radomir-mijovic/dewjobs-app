@@ -11,7 +11,7 @@ import {useJobsContext} from "../context/job_context";
 
 const JobsPage = () => {
     const {isModal} = useStyleContext()
-    const {isError} = useJobsContext()
+    const {isError, filteringJobs} = useJobsContext()
 
     if (isError) {
         return (
@@ -30,9 +30,11 @@ const JobsPage = () => {
                 {isModal && <MobileFilter/>}
                 <Cards/>
                 <ButtonFlex>
-                    <ButtonLoadMore>
-                        Load More
-                    </ButtonLoadMore>
+                    {filteringJobs.length === 0 ?
+                        <h1>No Jobs Found</h1> :
+                        <ButtonLoadMore>
+                            Load More
+                        </ButtonLoadMore>}
                 </ButtonFlex>
             </ContainerStyled>
         </motion.div>
