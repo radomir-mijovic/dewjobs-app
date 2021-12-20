@@ -10,15 +10,14 @@ import {useStyleContext} from "../context/style_context";
 import {useJobsContext} from "../context/job_context";
 import {Link} from "react-router-dom";
 import Loading from "../components/loading/Loading";
+import Error from "../components/error/Error";
 
 const JobsPage = () => {
     const {isModal} = useStyleContext()
     const {isError, isLoading, filteringJobs} = useJobsContext()
 
     if (isError) {
-        return (
-            <h1>Error</h1>
-        )
+        return <Error/>
     }
 
     return (
