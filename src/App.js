@@ -1,5 +1,5 @@
 import React, {useEffect} from "react";
-import {Switch, Route, useLocation} from "react-router-dom";
+import {Switch, Route, useLocation, Redirect} from "react-router-dom";
 import JobsPage from "./pages/JobsPage";
 import JobDetailPage from "./pages/JobDetailPage";
 import GlobalStyle from "./components/globalStyle/GlobalStyle";
@@ -8,9 +8,6 @@ import {useStyleContext} from "./context/style_context";
 import {AnimatePresence} from "framer-motion"
 import {useJobsContext} from "./context/job_context";
 import ScrollToTop from "./components/scrollToTop/ScrollToTop";
-
-// TODO line height in requirements
-// TODO fix go back button
 
 function App() {
     const location = useLocation()
@@ -30,6 +27,7 @@ function App() {
                 <Switch location={location} key={location.pathname}>
                     <Route exact path='/' component={JobsPage}/>
                     <Route path='/job-detail/:id' component={JobDetailPage}/>
+                    <Route path='*' render={() => <Redirect to={'/'}/>} />
                 </Switch>
             </AnimatePresence>
         </>

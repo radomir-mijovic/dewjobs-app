@@ -3,7 +3,7 @@ import {ContainerStyled} from "../components/container/ContainerStyled";
 import SearchBar from "../components/searchBar/SearchBar";
 import SearchBarMobile from "../components/searchBar/SearchBarMobile";
 import Cards from "../components/cards/Cards";
-import {ButtonFlex, ButtonLoadMore} from "../components/UI/ButtonsStyled";
+import {BackHomeButton, ButtonFlex, ButtonLoadMore} from "../components/UI/ButtonsStyled";
 import {motion} from "framer-motion";
 import MobileFilter from "../components/MobileFilter/MobileFilter";
 import {useStyleContext} from "../context/style_context";
@@ -22,8 +22,6 @@ const JobsPage = () => {
         setSliceEnd,
         sliceEnd
     } = useJobsContext()
-
-    console.log(filteringJobs.length)
 
     const sliceHandler = () => {
         setSliceEnd(prevState => prevState + 3)
@@ -56,9 +54,9 @@ const JobsPage = () => {
                                     <h1>
                                         No Jobs Found
                                     </h1>
-                                    <button onClick={loadAllJobsHandler}>
+                                    <BackHomeButton onClick={loadAllJobsHandler}>
                                         Back to jobs list
-                                    </button>
+                                    </BackHomeButton>
                                 </> :
                                 <>
                                 {filteringJobs.length <= sliceEnd ? null :

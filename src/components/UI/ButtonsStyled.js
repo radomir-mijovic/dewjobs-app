@@ -62,8 +62,12 @@ export const ButtonFlex = styled.div`
   justify-content: center;
   margin-top: 5.6rem;
   margin-bottom: 8rem;
-  
-  > button {
-    
-  }
+`
+
+export const BackHomeButton = styled.button`
+  height: 3rem;
+  background: ${props => props.isLight ? '#e5e6f1' : '#484853'};
+  margin-left: 2rem;
+  font-size: 1.8rem;
+  padding: 0 1rem;
 `
