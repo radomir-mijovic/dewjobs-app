@@ -10,7 +10,7 @@ import {
     IS_ERROR
 } from "../helpers/actions";
 
-const JOBS_URL = 'http://127.0.0.1:8000/api/jobs/'
+const JOBS_URL = 'https://dewjobs-web-app.herokuapp.com/api/jobs/'
 
 const initialState = {
     jobs: [],
@@ -27,7 +27,7 @@ export const JobsProvider = ({children}) => {
     const [searchTitle, setSearchTitle] = useState('')
     const [searchLocation, setSearchLocation] = useState('')
     const [isFullTime, setIsFullTime] = useState('')
-    const [sliceEnd, setSliceEnd] = useState(2)
+    const [sliceEnd, setSliceEnd] = useState(6)
     const {setIsAutocomplete, setIsChecked} = useStyleContext()
 
     const getAllJobs = async () => {
@@ -52,7 +52,7 @@ export const JobsProvider = ({children}) => {
             dispatch({
                 type: IS_LOADING
             })
-            const response = await axios.get(`http://127.0.0.1:8000/api/jobs/${id}/`)
+            const response = await axios.get(`https://dewjobs-web-app.herokuapp.com/api/jobs/${id}/`)
             dispatch({
                 type: GET_JOB_DETAIL,
                 payload: response.data
@@ -101,7 +101,7 @@ export const JobsProvider = ({children}) => {
         setIsFullTime('')
         setIsChecked(false)
         setIsAutocomplete(false)
-        setSliceEnd(2)
+        setSliceEnd(6)
     }
 
     return (

@@ -9,6 +9,8 @@ import {AnimatePresence} from "framer-motion"
 import {useJobsContext} from "./context/job_context";
 import ScrollToTop from "./components/scrollToTop/ScrollToTop";
 
+// TODO line height in requirements
+// TODO fix go back button
 
 function App() {
     const location = useLocation()

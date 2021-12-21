@@ -41,9 +41,9 @@ const JobInfo = () => {
             </div>
             <H2Card className='text'>
                 {description}
-            </H2Card>
+            </H2Card >
             <h1 className='header-text'>Requirements</h1>
-            <H2Card>
+            <H2Card className='text'>
                 {requirements}
             </H2Card>
             <ul>
@@ -54,7 +54,7 @@ const JobInfo = () => {
                 })}
             </ul>
             <h1 className='header-text'>What You Will Do</h1>
-            <H2Card>
+            <H2Card className='text'>
                 {role}
             </H2Card>
             <ol>

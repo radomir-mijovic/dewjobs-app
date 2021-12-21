@@ -19,11 +19,14 @@ const JobsPage = () => {
         filteringJobs,
         getAllJobs,
         clearValuesHandler,
-        setSliceEnd
+        setSliceEnd,
+        sliceEnd
     } = useJobsContext()
 
+    console.log(filteringJobs.length)
+
     const sliceHandler = () => {
-        setSliceEnd(prevState => prevState + 2)
+        setSliceEnd(prevState => prevState + 3)
     }
 
     const loadAllJobsHandler = () => {
@@ -57,9 +60,13 @@ const JobsPage = () => {
                                         Back to jobs list
                                     </button>
                                 </> :
-                                <ButtonLoadMore onClick={sliceHandler}>
-                                    Load More
-                                </ButtonLoadMore>}
+                                <>
+                                {filteringJobs.length <= sliceEnd ? null :
+                                    <ButtonLoadMore onClick={sliceHandler}>
+                                        Load More
+                                    </ButtonLoadMore>}
+                                </>
+                            }
                         </ButtonFlex>
                     </> :
                     <Loading/>
